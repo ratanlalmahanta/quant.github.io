@@ -1,0 +1,6 @@
+.gnupg/
+*.pem
+*.log
+*.swp
+*.tmp
+
