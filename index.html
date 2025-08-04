@@ -1,104 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Algorithmic Trading – Quant Research</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #1a1a1a;
-      color: #ffffff;
-      padding: 20px 40px;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    section {
-      padding: 40px;
-    }
-    .section-title {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-      color: #333;
-      border-bottom: 2px solid #007bff;
-      display: inline-block;
-    }
-    .content {
-      max-width: 900px;
-      margin: auto;
-    }
-    footer {
-      background-color: #1a1a1a;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratanlal Mahanta | Quant Trading Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>⚙️ Algorithmic Trading & Quantitative Research</h1>
-    <p>Systematic strategies. Data-driven insights. Real-time execution.</p>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Quant Trading Products | AI-Powered Finance</p>
+    </div>
   </header>
 
-  <section>
-    <div class="content">
-      <h2 class="section-title">🚀 What We Build</h2>
-      <ul>
-        <li>Statistical arbitrage strategies using Python & C++</li>
-        <li>Backtesting engines with high-resolution market data</li>
-        <li>Signal generation pipelines using machine learning</li>
-        <li>Real-time execution systems with low-latency gateways</li>
-        <li>Portfolio optimization under risk and liquidity constraints</li>
-      </ul>
-    </div>
-  </section>
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
 
-  <section>
-    <div class="content">
-      <h2 class="section-title">📈 Tech Stack</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, C++, R</li>
-        <li><strong>Tools:</strong> NumPy, pandas, Zipline, QuantLib</li>
-        <li><strong>Infra:</strong> NGINX, EC2, GitHub Actions</li>
-        <li><strong>Deployment:</strong> CI/CD pipelines to live trading servers</li>
-      </ul>
-    </div>
-  </section>
+      <li>
+        <a class="has-submenu" id="productToggle">Quant Products <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="productSubmenu">
+          <li><a href="fx.html">FX & Rates Models</a></li>
+          <li><a href="equity.html">Equity Derivatives</a></li>
+          <li><a href="crypto.html">Crypto Strategies</a></li>
+          <li><a href="ml.html">ML-Based Trading</a></li>
+          <li><a href="risk.html">Risk & CVA Tools</a></li>
+          <li><a href="hedging.html">Dynamic Hedging</a></li>
+          <li><a href="backtest.html">Backtesting Frameworks</a></li>
+          <li><a href="infra.html">Simulation Infrastructure</a></li>
+        </ul>
+      </li>
 
-  <section>
-    <div class="content">
-      <h2 class="section-title">🧠 Focus Areas</h2>
-      <ul>
-        <li>Mean Reversion & Momentum Strategies</li>
-        <li>Options Volatility Arbitrage</li>
-        <li>Machine Learning in Financial Forecasting</li>
-        <li>High-Frequency Execution Models</li>
-      </ul>
-    </div>
-  </section>
+      <li><a href="research.html">Research & Innovation</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="lab.html">Quant Lab</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </aside>
 
-  <footer>
-    <p>© 2025 Ratan Mahanta | <a href="https://github.com/ratanlalmahanta">GitHub</a></p>
-  </footer>
+  <main>
+    <section class="intro">
+      <h2>Welcome to My Quant Trading Product Portfolio</h2>
+      <p>This site showcases advanced trading models and financial engineering tools built using Python, C++, and R. Explore FX models, volatility surface engines, ML alpha strategies, CVA analytics, and dynamic hedging systems for institutional applications.</p>
+    </section>
+
+    <section class="product-highlight">
+      <h3>Featured Product Areas</h3>
+      <ul>
+        <li><strong>FX & IR:</strong> Local volatility, HJM, and delta hedging engines</li>
+        <li><strong>Equity:</strong> Barrier options, American Monte Carlo pricing, Greeks</li>
+        <li><strong>Crypto:</strong> Momentum and machine learning-based forecasting</li>
+        <li><strong>Machine Learning:</strong> XGBoost alpha strategies, LSTM volatility predictors</li>
+        <li><strong>Risk:</strong> CVA engines, haircut stress, repo VaR, FRTB SA toolkits</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.getElementById("sidebar").classList.toggle("active");
+    });
+    document.getElementById("close-btn").addEventListener("click", function () {
+      document.getElementById("sidebar").classList.remove("active");
+    });
+    document.getElementById("productToggle").addEventListener("click", function () {
+      document.getElementById("productSubmenu").classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
