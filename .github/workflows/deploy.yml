@@ -1,0 +1,27 @@
+name: 🚀 Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is 'master'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🐧 Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /home/ubuntu/quant.github.io
+          git pull origin main
+          sudo rm -rf /var/www/html/*
+          sudo cp -r * /var/www/html/
+          sudo systemctl restart nginx
