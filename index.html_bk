@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
-  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech, Algo Trading, Quant Development" />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
   <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
-  <meta property="og:description" content="Quantitative Finance, AI research, model validation, and algo trading infrastructure. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
   <meta property="og:type" content="website" />
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
@@ -273,87 +273,58 @@
   </aside>
 
   <main>
-    <header>
-      <h1>⚙️ Algorithmic Trading & Quantitative Research</h1>
+    <!-- Your blog and content sections remain here -->
+
+
+  <header>
+    <h1>⚙️ Algorithmic Trading & Quantitative Research</h1>
     </header>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">🚀 What We Build</h2>
-        <ul>
-          <li>Statistical arbitrage strategies using Python & C++</li>
-          <li>Backtesting engines with high-resolution market data</li>
-          <li>Signal generation pipelines using machine learning</li>
-          <li>Real-time execution systems with low-latency gateways</li>
-          <li>Portfolio optimization under risk and liquidity constraints</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <div class="content">
+      <h2 class="section-title">🚀 What We Build</h2>
+      <ul>
+        <li>Statistical arbitrage strategies using Python & C++</li>
+        <li>Backtesting engines with high-resolution market data</li>
+        <li>Signal generation pipelines using machine learning</li>
+        <li>Real-time execution systems with low-latency gateways</li>
+        <li>Portfolio optimization under risk and liquidity constraints</li>
+      </ul>
+    </div>
+  </section>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">📈 Tech Stack</h2>
-        <ul>
-          <li><strong>Languages:</strong> Python, C++, R, Rust, Julia</li>
-          <li><strong>Tools:</strong> NumPy, pandas, QuantLib, TensorFlow, PyTorch</li>
-          <li><strong>Infra:</strong> NGINX, EC2, Docker, Kubernetes</li>
-          <li><strong>Deployment:</strong> CI/CD pipelines, GitHub Actions, Terraform</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <div class="content">
+      <h2 class="section-title">📈 Tech Stack</h2>
+      <ul>
+        <li><strong>Languages:</strong> Python, C++, R</li>
+        <li><strong>Tools:</strong> NumPy, pandas, Zipline, QuantLib</li>
+        <li><strong>Infra:</strong> NGINX, EC2, GitHub Actions</li>
+        <li><strong>Deployment:</strong> CI/CD pipelines to live trading servers</li>
+      </ul>
+    </div>
+  </section>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">🧠 Focus Areas</h2>
-        <ul>
-          <li>Mean Reversion & Momentum Strategies</li>
-          <li>Options Volatility Arbitrage</li>
-          <li>Machine Learning in Financial Forecasting</li>
-          <li>High-Frequency Execution Models</li>
-          <li>Risk Management & Model Validation (CVA, FRTB, IRRBB)</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <div class="content">
+      <h2 class="section-title">🧠 Focus Areas</h2>
+      <ul>
+        <li>Mean Reversion & Momentum Strategies</li>
+        <li>Options Volatility Arbitrage</li>
+        <li>Machine Learning in Financial Forecasting</li>
+        <li>High-Frequency Execution Models</li>
+      </ul>
+    </div>
+  </section>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">🛠️ Quant Dev & Engineering</h2>
-        <ul>
-          <li>Monte Carlo Simulation Engines for derivatives pricing</li>
-          <li>LSM-based Bermudan Swaption Pricing & Hedging</li>
-          <li>Copula-based Credit & Counterparty Risk Modeling</li>
-          <li>Market Risk Engines for Repo, FX, IR, and Equities</li>
-          <li>Interactive Dashboards with Streamlit & Plotly</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">🔍 Model Validation</h2>
-        <ul>
-          <li>Independent Model Validation for CVA, FRTB SA/IMA</li>
-          <li>Benchmarking against QuantLib, Bloomberg & internal models</li>
-          <li>Automated Backtesting & Stress Testing frameworks</li>
-          <li>Governance-ready Documentation & Audit Controls</li>
-          <li>End-to-end reproducible validator pipelines</li>
-        </ul>
-      </div>
-    </section>
 
-    <section>
-      <div class="content">
-        <h2 class="section-title">⚡ Algo Trading Infrastructure & Development</h2>
-        <ul>
-          <li>Low-latency execution gateways (FIX/FAST, WebSocket, DMA)</li>
-          <li>Distributed backtesting clusters for high-frequency data</li>
-          <li>Event-driven architectures with Kafka & Redis</li>
-          <li>Cloud-native deployment (AWS, GCP, Kubernetes)</li>
-          <li>Automated monitoring with Prometheus & Grafana</li>
-          <li>CI/CD pipelines for live algo strategy rollout</li>
-        </ul>
-      </div>
-    </section>
+
+
+
+
+
+    
   </main>
 
   <footer>
