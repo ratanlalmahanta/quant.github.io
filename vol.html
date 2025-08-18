@@ -2,86 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CDS Pricing with Merton Model — Monte Carlo & Stress Testing</title>
-  <meta name="description" content="CDS pricing using the Merton model, Monte Carlo simulation for CDS spread distribution, and stress testing under multiple factors." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
+  <meta name="author" content="Ratanlal Mahanta" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- MathJax for LaTeX rendering -->
+  <!-- ✅ MathJax config for formulas -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['\\(','\\)'], ['$', '$']],
-        displayMath: [['\\[','\\]'], ['$$','$$']],
-        processEscapes: true,
-        packages: {'[+]': ['ams']}
-      },
-      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <style>
-    :root{
-      --bg:#ffffff; --panel:#f9fbfd; --ink:#1a1a1a; --sub:#444; --accent:#0057b7; --line:#d9e1ea;
-      --muted:#777;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #222;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
-      background:var(--bg); color:var(--ink);
+    header {
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
-    header{
-      padding:48px 20px 24px; text-align:center; border-bottom:1px solid var(--line);
-      background: radial-gradient(1200px 400px at 50% -50px, rgba(0,87,183,.05), transparent 60%);
+    header h1 { margin: 0; font-size: 1.8em; }
+    header p { margin: 0; font-size: 0.9em; color: #ccc; }
+    #menu-toggle {
+      background: none; border: none; color: white;
+      font-size: 1.5em; cursor: pointer;
     }
-    h1{margin:.2em 0 .3em; font-size:clamp(1.6rem, 2.2vw + 1rem, 2.2rem); letter-spacing:.2px}
-    .lead{color:var(--sub); max-width:900px; margin:0 auto; font-size:1.05rem}
-    main{max-width:1000px; margin:0 auto; padding:28px 20px 64px; display:grid; gap:18px}
-    section{
-      background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px;
-      box-shadow: 0 3px 10px rgba(0,0,0,.05);
+    aside.sidebar {
+      position: fixed; top: 0; left: -250px;
+      width: 250px; height: 100%; background: #333;
+      padding-top: 60px; overflow-y: auto;
+      transition: left 0.3s ease-in-out; z-index: 1000;
     }
-    h2{margin:.1em 0 .6em; font-size:1.35rem}
-    h3{margin:1.2em 0 .4em; font-size:1.05rem; color:var(--accent)}
-    p{color:var(--sub); line-height:1.65}
-    ul,ol{color:var(--sub); line-height:1.7; padding-left:1.2rem}
-    code, kbd{background:#f0f3f7; border:1px solid var(--line); padding:.15rem .35rem; border-radius:6px; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
-    .callout{
-      border-left:4px solid var(--accent); padding:12px 14px; background:#f3f8fc; border-radius:8px; margin:10px 0; color:var(--sub)
+    .sidebar.active { left: 0; }
+    .sidebar ul { list-style: none; padding: 0; margin: 0; }
+    .sidebar ul li { padding: 15px 20px; }
+    .sidebar ul li a {
+      color: white; text-decoration: none;
+      display: block; font-weight: bold; cursor: pointer;
     }
-    .grid{display:grid; gap:12px}
-    @media (min-width: 850px){ .grid.two{grid-template-columns:1fr 1fr} }
-    .small{font-size:.95rem}
-    footer{color:var(--muted); text-align:center; padding:28px 16px; border-top:1px solid var(--line)}
-    .eq{margin:.8em 0; padding:.6em .8em; background:#f8fafc; border:1px solid var(--line); border-radius:8px; color:var(--ink)}
+    .sidebar ul li a:hover, .sidebar ul li a.active {
+      background: #444; color: #2ecc71;
+    }
+    .sidebar i { margin-right: 8px; }
+    .submenu { display: none; padding-left: 10px; transition: all 0.3s ease-in-out; }
+    .submenu li { padding: 8px 20px; font-weight: normal; }
+    .submenu li a { color: #ccc; font-weight: normal; }
+    .submenu li a:hover { color: #2ecc71; }
+    #close-btn {
+      position: absolute; top: 10px; right: 15px;
+      background: none; border: none; color: white;
+      font-size: 1.2em; cursor: pointer;
+    }
+    .right-sidebar {
+      position: fixed; top: 0; right: -250px;
+      width: 250px; height: 100%; background: #222;
+      color: white; padding-top: 60px;
+      overflow-y: auto; transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+    .right-sidebar.active { right: 0; }
+    main { padding: 20px; max-width: 1000px; margin: auto; }
+    h2, h3 { color: #1a1a1a; }
+    footer {
+      background: #1a1a1a; color: #ccc;
+      text-align: center; padding: 20px;
+    }
+    footer a { color: #ccc; margin: 0 10px; text-decoration: none; }
+    footer a:hover { color: #2ecc71; }
+    .social-media i { margin: 0 5px; font-size: 1.2em; }
+    .sr-only {
+      position: absolute; left: -9999px;
+      top: auto; width: 1px; height: 1px; overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.4em; }
+      #menu-toggle { font-size: 1.3em; }
+      .sidebar ul li { padding: 12px 16px; }
+      main { padding: 15px; }
+    }
+    /* Timeline styling */
+    .timeline { position: relative; margin: 20px 0; }
+    .container { padding: 10px 40px; position: relative; width: 50%; }
+    .container.left { left: 0; }
+    .container.right { left: 50%; }
+    .content {
+      padding: 15px; background: white;
+      border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .content h3 i { margin-right: 6px; color: #2ecc71; }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>CDS Pricing with the Merton Model</h1>
-    <p class="lead">
-      Monte Carlo simulation for CDS spread distribution and stress testing under changing risk factors.
-    </p>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Computational Finance | AI-Driven Quantitative Research</p>
+    </div>
   </header>
 
+  <!-- ✅ Main content with formulas -->
   <main>
-    <section id="overview">
-      <h2>Overview</h2>
-      <p>
-        The CDS pricing model here uses the Merton framework where default probabilities stem from the dynamics of a firm’s asset value.
-        Asset dynamics follow Geometric Brownian Motion (GBM). We estimate CDS spreads via Monte Carlo and examine sensitivity through stress tests.
-      </p>
-      <div class="callout small">
-        <strong>Note:</strong> In simulation, generate one asset path per iteration (rather than <code>num_simulations</code> paths inside each iteration) to avoid redundant work.
-      </div>
-    </section>
+    <h1>CDS Pricing with the Merton Model</h1>
+    <p>Monte Carlo simulation for CDS spread distribution and stress testing under changing risk factors.</p>
+
+  <p>
+    Credit Default Swap (CDS) pricing can be linked to the probability of default (PD) implied by the
+    Merton model. The model treats a firm’s equity as a call option on its assets with debt as the strike.
+    Default occurs when asset values fall below debt obligations at maturity.
+  </p>
+
+  <h3>Monte Carlo Simulation</h3>
+  <p>
+    A Monte Carlo approach is used to estimate CDS spreads. Each simulation iteration generates one
+    asset price path, computes distance-to-default, derives PD, and then maps it to spreads. This avoids
+    redundant nested simulations.
+  </p>
+
+  <h3>Stress Testing</h3>
+  <p>
+    Stress tests allow us to evaluate CDS spreads under extreme but plausible market conditions. Factors
+    such as volatility ($\sigma$), asset drift ($\mu$), debt level ($D$), and maturity ($T$) can be shocked to
+    observe sensitivity in spreads.
+  </p>
 
     <section id="gbm">
       <h2>Asset Dynamics (GBM)</h2>
+      <p>Asset values follow a stochastic process:</p>
       <div class="eq">
-        \[
-        \mathrm{d}S_t = r\,S_t\,\mathrm{d}t + \sigma\,S_t\,\mathrm{d}W_t
-        \]
+        \[ dS_t = r S_t \, dt + \sigma S_t \, dW_t \]
       </div>
       <ul>
         <li>\(S_t\): asset value at time \(t\)</li>
@@ -95,15 +166,11 @@
       <h2>Probability of Default (PD)</h2>
       <p>Distance to Default (DD):</p>
       <div class="eq">
-        \[
-        \mathrm{DD} = \frac{\ln\!\left(\frac{V_0}{D}\right) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma\sqrt{T}}
-        \]
+        \[ \mathrm{DD} = \frac{\ln\!\left(\frac{V_0}{D}\right) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma \sqrt{T}} \]
       </div>
       <p>Default probability at maturity \(T\):</p>
       <div class="eq">
-        \[
-        \mathrm{PD} = \Phi(-\mathrm{DD})
-        \]
+        \[ \mathrm{PD} = \Phi(-\mathrm{DD}) \]
       </div>
     </section>
 
@@ -111,67 +178,44 @@
       <h2>CDS Spread (bps)</h2>
       <p>Given a recovery rate \(R\) and probability of default \(\mathrm{PD}\), an illustrative spread formula is:</p>
       <div class="eq">
-        \[
-        s = (1 - \mathrm{PD}) \times 10000
-        \]
+        \[ s = (1 - \mathrm{PD}) \times 10000 \]
       </div>
     </section>
 
     <section id="mc">
       <h2>Monte Carlo Simulation</h2>
-      <p>
-        For each iteration, simulate one terminal asset value \(S_i\) under GBM, compute PD from the simulated state, then the spread. The Monte Carlo estimator is:
-      </p>
+      <p>The Monte Carlo estimator for CDS spread is:</p>
       <div class="eq">
         \[
-        \hat{s}_{\mathrm{MC}} = \frac{1}{N}\sum_{i=1}^{N}
-        \Bigg(
-        \Big(1 - \Phi\!\Big(
-          -\frac{\ln(S_i / D) + (r + \tfrac{1}{2}\sigma^2)T}{\sigma\sqrt{T}}
-        \Big)\Big)\times 10000
-        \Bigg)
+          \hat{s}_{\mathrm{MC}} = \frac{1}{N}\sum_{i=1}^{N}
+          \left[
+            \left(1 - \Phi\!\left(
+              -\frac{\ln(S_i / D) + (r + \tfrac{1}{2}\sigma^2)T}{\sigma \sqrt{T}}
+            \right)\right)\times 10000
+          \right]
         \]
       </div>
     </section>
+  
+  <h2>Summary</h2>
+  <ul>
+    <li>Model defaults via Merton; compute PD from distance-to-default.</li>
+    <li>Estimate spreads through Monte Carlo using one path per iteration.</li>
+    <li>Stress test $\mu$, $\sigma$, $D$, and $T$ to gauge sensitivity.</li>
+  </ul>
 
-    <section id="stress">
-      <h2>Stress Testing</h2>
-      <p>
-        Examine sensitivity of CDS spreads to shocks in key inputs such as volatility \(\sigma\), risk-free rate \(r\), recovery rate \(R\), or default threshold \(D\).
-      </p>
-      <ul>
-        <li>\(\sigma_{\mathrm{stressed}} = \sigma \times \mathrm{stress\_factor}\)</li>
-        <li>\(r_{\mathrm{stressed}} = r \times \mathrm{stress\_factor}\)</li>
-        <li>Recovery \(R\): vary up/down</li>
-        <li>Default threshold \(D\): adjust leverage assumptions</li>
-      </ul>
-    </section>
-
-    <section id="summary">
-      <h2>Summary</h2>
-      <ul>
-        <li>Model defaults via Merton; compute PD from distance-to-default.</li>
-        <li>Estimate spreads through Monte Carlo using one path per iteration.</li>
-        <li>Stress test \(\sigma\), \(r\), \(R\), and \(D\) to gauge sensitivity.</li>
-      </ul>
-    </section>
-    
-    <section id="Reference">
-      <h2>Reference</h2>
-      <ul>
-        <li>Model defaults via Merton; <a href="https://media.licdn.com/dms/document/media/v2/D4D2DAQEvUmTxqk-R4w/profile-treasury-document-pdf-analyzed/B4DZXWUkKyG8Ag-/0/1743057472138?e=1756339200&v=beta&t=hxxKoAldryOCOMC7gqJdbhqV2l3Aw2ijwPGfmQ-7poE" target="_blank">CDS Pricing</a>.</li>
-        
-      </ul>
-    </section>
-    
+  <h2>Reference</h2>
+  <p>Model defaults via Merton; <a href="https://media.licdn.com/dms/document/media/v2/D4D2DAQEvUmTxqk-R4w/profile-treasury-document-pdf-analyzed/B4DZXWUkKyG8Ag-/0/1743057472138?e=1756339200&v=beta&t=hxxKoAldryOCOMC7gqJdbhqV2l3Aw2ijwPGfmQ-7poE" target="_blank">CDS Pricing</a>.</p>
   </main>
 
   <footer>
-    © <span id="y"></span> CDS Pricing Demo • Merton Model
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("close-btn");
   </script>
 </body>
 </html>
