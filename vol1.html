@@ -136,6 +136,7 @@
   </aside>
   <div id="overlay"></div>
 
+<<<<<<< HEAD
   <main>
    
     </section>
@@ -194,6 +195,108 @@
       </ul>
     </section>
   </main>
+=======
+
+ 
+   <!-- ✅ Main content -->
+  <main>
+    <h1>CDS Pricing with the Merton Model</h1>
+    <p>Monte Carlo simulation for CDS spread distribution and stress testing under changing risk factors.</p>
+
+  <p>
+    Credit Default Swap (CDS) pricing can be linked to the probability of default (PD) implied by the
+    Merton model. The model treats a firm’s equity as a call option on its assets with debt as the strike.
+    Default occurs when asset values fall below debt obligations at maturity.
+  </p>
+
+  <h3>Monte Carlo Simulation</h3>
+  <p>
+    A Monte Carlo approach is used to estimate CDS spreads. Each simulation iteration generates one
+    asset price path, computes distance-to-default, derives PD, and then maps it to spreads. This avoids
+    redundant nested simulations.
+  </p>
+
+  <h3>Stress Testing</h3>
+  <p>
+    Stress tests allow us to evaluate CDS spreads under extreme but plausible market conditions. Factors
+    such as volatility ($\sigma$), asset drift ($\mu$), debt level ($D$), and maturity ($T$) can be shocked to
+    observe sensitivity in spreads.
+  </p>
+
+    <section id="gbm">
+      <h2>Asset Dynamics (GBM)</h2>
+      <p>Asset values follow a stochastic process:</p>
+      <div class="eq">
+        \[ dS_t = r S_t \, dt + \sigma S_t \, dW_t \]
+      </div>
+      <ul>
+        <li>\(S_t\): asset value at time \(t\)</li>
+        <li>\(r\): risk-free rate</li>
+        <li>\(\sigma\): asset volatility</li>
+        <li>\(W_t\): standard Brownian motion</li>
+      </ul>
+    </section>
+
+    <section id="pd">
+      <h2>Probability of Default (PD)</h2>
+      <p>Distance to Default (DD):</p>
+      <div class="eq">
+        \[ \mathrm{DD} = \frac{\ln\!\left(\frac{V_0}{D}\right) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma \sqrt{T}} \]
+      </div>
+      <p>Default probability at maturity \(T\):</p>
+      <div class="eq">
+        \[ \mathrm{PD} = \Phi(-\mathrm{DD}) \]
+      </div>
+    </section>
+
+    <section id="spread">
+      <h2>CDS Spread (bps)</h2>
+      <p>Given a recovery rate \(R\) and probability of default \(\mathrm{PD}\), an illustrative spread formula is:</p>
+      <div class="eq">
+        \[ s = (1 - \mathrm{PD}) \times 10000 \]
+      </div>
+    </section>
+
+    <section id="mc">
+      <h2>Monte Carlo Simulation</h2>
+      <p>The Monte Carlo estimator for CDS spread is:</p>
+      <div class="eq">
+        \[
+          \hat{s}_{\mathrm{MC}} = \frac{1}{N}\sum_{i=1}^{N}
+          \left[
+            \left(1 - \Phi\!\left(
+              -\frac{\ln(S_i / D) + (r + \tfrac{1}{2}\sigma^2)T}{\sigma \sqrt{T}}
+            \right)\right)\times 10000
+          \right]
+        \]
+      </div>
+    <img src="assets/images/cds1.png" alt="Heston surface example" />
+ <img src="assets/images/cds2.png" alt="Heston surface example" />
+
+ <img src="assets/images/cds3.png" alt="Heston surface example" />
+
+    </section>
+
+
+    <section id="summary">
+      <h2>Summary</h2>
+      <ul>
+        <li>Model defaults via Merton; compute PD from distance-to-default.</li>
+        <li>Estimate spreads through Monte Carlo using one path per iteration.</li>
+        <li>Stress test $\mu$, $\sigma$, $D$, and $T$ to gauge sensitivity.</li>
+      </ul>
+    </section>
+
+    <section id="reference">
+      <h2>Reference</h2>
+      <p>Model defaults via Merton;
+        <a href="https://media.licdn.com/dms/document/media/v2/D4D2DAQEvUmTxqk-R4w/profile-treasury-document-pdf-analyzed/B4DZXWUkKyG8Ag-/0/1743057472138?e=1756339200&v=beta&t=hxxKoAldryOCOMC7gqJdbhqV2l3Aw2ijwPGfmQ-7poE" target="_blank">CDS Pricing</a>.
+      </p>
+    </section>
+  </main>
+ 
+   
+>>>>>>> 711ac5a (blog_post_1.html Main)
 
   <footer id="contact">
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
@@ -225,5 +226,193 @@
       });
     });
   </script>
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Quant Portal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family: 'Roboto', sans-serif; background: #f5f7fa; color: #111; }
+header { background:#2563eb; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
+header h1 { margin:0; font-size:24px; }
+header button { background:#1d4ed8; border:none; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; }
+#sidebar { width:220px; background:#1e293b; color:white; height:100vh; position:fixed; top:0; left:0; padding-top:60px; overflow:auto; }
+#sidebar a { display:block; padding:12px 20px; color:white; text-decoration:none; border-bottom:1px solid #334155; cursor:pointer; }
+#sidebar a:hover { background:#2563eb; }
+main { margin-left:220px; padding:20px; min-height:100vh; }
+.page { display:none; }
+.active-page { display:block; }
+button.app-btn { margin:5px; padding:10px 15px; border-radius:8px; cursor:pointer; border:none; background:#2563eb; color:white; transition:0.3s; }
+button.app-btn:hover { background:#1e40af; }
+iframe { width:100%; height:500px; border-radius:8px; border:2px solid #e2e8f0; }
+.card-container { display:flex; flex-wrap:wrap; gap:15px; margin-top:15px; }
+.card { background:white; border-radius:12px; padding:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); width:250px; transition:0.3s; cursor:pointer; }
+.card:hover { transform: translateY(-5px); box-shadow:0 8px 16px rgba(0,0,0,0.2); }
+#darkModeToggle { cursor:pointer; margin-left:15px; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+table, th, td { border:1px solid #ccc; }
+th, td { padding:8px; text-align:left; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Advanced Quant Portal</h1>
+    <div>
+        <span id="darkModeToggle"><i class="fas fa-moon"></i></span>
+        <button onclick="logout()">Logout <i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</header>
+
+<div id="sidebar">
+    <a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a>
+    <a onclick="showPage('apps')"><i class="fas fa-th"></i> Apps</a>
+    <a onclick="showPage('analytics')"><i class="fas fa-chart-line"></i> Analytics</a>
+    <a onclick="showPage('reports')"><i class="fas fa-file-alt"></i> Reports</a>
+    <a onclick="showPage('trading')"><i class="fas fa-bolt"></i> Live Trading</a>
+    <a onclick="showPage('users')"><i class="fas fa-users-cog"></i> User Management</a>
+    <a onclick="showPage('settings')"><i class="fas fa-cog"></i> Settings</a>
+</div>
+
+<main>
+    <!-- Home -->
+    <div id="home" class="page active-page">
+        <h2>Welcome to Advanced Quant Portal</h2>
+        <p>Select an option from the sidebar to continue.</p>
+    </div>
+
+    <!-- Apps -->
+    <div id="apps" class="page">
+        <h2>Apps Dashboard</h2>
+        <div id="appsMenu"></div>
+        <div id="appDisplay" style="margin-top:20px; display:none;">
+            <h3 id="appTitle"></h3>
+            <iframe id="appIframe"></iframe>
+            <button onclick="backToMenu()" style="margin-top:10px; padding:6px 12px; border:none; background:#2563eb; color:white; border-radius:6px; cursor:pointer;">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+        </div>
+    </div>
+
+    <!-- Analytics -->
+    <div id="analytics" class="page">
+        <h2>Analytics Dashboard</h2>
+        <div class="card-container">
+            <div class="card"><i class="fas fa-chart-line fa-2x"></i><h4>Portfolio Performance</h4><p>View overall returns.</p></div>
+            <div class="card"><i class="fas fa-coins fa-2x"></i><h4>Risk Metrics</h4><p>VaR, CVaR, Greeks.</p></div>
+            <div class="card"><i class="fas fa-balance-scale fa-2x"></i><h4>Exposure</h4><p>Track exposures by desk.</p></div>
+        </div>
+    </div>
+
+    <!-- Reports -->
+    <div id="reports" class="page">
+        <h2>Reports</h2>
+        <div class="card-container">
+            <div class="card"><i class="fas fa-file-invoice-dollar fa-2x"></i><h4>Daily P&L</h4><p>Download daily profit/loss report.</p></div>
+            <div class="card"><i class="fas fa-chart-pie fa-2x"></i><h4>Risk Report</h4><p>Download risk analysis report.</p></div>
+            <div class="card"><i class="fas fa-file-export fa-2x"></i><h4>Trade Logs</h4><p>Export trade logs to Excel.</p></div>
+        </div>
+    </div>
+
+    <!-- Live Trading -->
+    <div id="trading" class="page">
+        <h2>Live Trading</h2>
+        <div class="card-container" id="liveTradingApps"></div>
+        <div id="tradingDisplay" style="margin-top:20px; display:none;">
+            <h3 id="tradingTitle"></h3>
+            <iframe id="tradingIframe"></iframe>
+            <button onclick="backToTradingMenu()" style="margin-top:10px; padding:6px 12px; border:none; background:#2563eb; color:white; border-radius:6px; cursor:pointer;">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+        </div>
+    </div>
+
+    <!-- User Management -->
+    <div id="users" class="page">
+        <h2>User Management</h2>
+        <table>
+            <tr><th>ID</th><th>Name</th><th>Role</th><th>Status</th></tr>
+            <tr><td>1</td><td>Admin</td><td>Administrator</td><td>Active</td></tr>
+            <tr><td>2</td><td>John</td><td>Trader</td><td>Active</td></tr>
+            <tr><td>3</td><td>Mary</td><td>Analyst</td><td>Inactive</td></tr>
+        </table>
+    </div>
+
+    <!-- Settings -->
+    <div id="settings" class="page">
+        <h2>Settings</h2>
+        <p>Adjust preferences, API keys, and themes here.</p>
+    </div>
+</main>
+
+<script>
+function logout(){ alert('Logging out...'); window.location.reload(); }
+function showPage(pageId){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active-page')); document.getElementById(pageId).classList.add('active-page'); }
+
+const darkToggle = document.getElementById('darkModeToggle');
+let darkMode=false;
+darkToggle.onclick = ()=>{
+    darkMode=!darkMode;
+    if(darkMode){
+        document.body.style.background='#0f172a'; document.body.style.color='white';
+        document.querySelectorAll('#sidebar').forEach(s=>s.style.background='#111827');
+    } else {
+        document.body.style.background='#f5f7fa'; document.body.style.color='#111';
+        document.querySelectorAll('#sidebar').forEach(s=>s.style.background='#1e293b');
+    }
+}
+
+// Apps menu
+const totalApps = 20;
+function populateAppsMenu() {
+    const menu = document.getElementById('appsMenu');
+    menu.innerHTML='';
+    for(let i=1;i<=totalApps;i++){
+        const btn = document.createElement('button');
+        btn.className='app-btn';
+        btn.innerHTML=`App ${i}`;
+        btn.onclick = ()=>showApp(i);
+        menu.appendChild(btn);
+    }
+}
+function showApp(i){
+    document.getElementById('appsMenu').style.display='none';
+    document.getElementById('appDisplay').style.display='block';
+    document.getElementById('appTitle').textContent=`App ${i}`;
+    document.getElementById('appIframe').src=`http://127.0.0.1:850${i}/app${i}`;
+}
+function backToMenu(){ document.getElementById('appDisplay').style.display='none'; document.getElementById('appsMenu').style.display='block'; }
+
+// Live Trading menu
+const totalTradingApps=5;
+function populateTradingMenu(){
+    const menu=document.getElementById('liveTradingApps');
+    menu.innerHTML='';
+    for(let i=1;i<=totalTradingApps;i++){
+        const btn=document.createElement('button');
+        btn.className='app-btn';
+        btn.innerHTML=`Trading App ${i}`;
+        btn.onclick=()=>showTradingApp(i);
+        menu.appendChild(btn);
+    }
+}
+function showTradingApp(i){
+    document.getElementById('liveTradingApps').style.display='none';
+    document.getElementById('tradingDisplay').style.display='block';
+    document.getElementById('tradingTitle').textContent=`Trading App ${i}`;
+    document.getElementById('tradingIframe').src=`http://127.0.0.1:860${i}/app${i}`;
+}
+function backToTradingMenu(){
+    document.getElementById('tradingDisplay').style.display='none';
+    document.getElementById('liveTradingApps').style.display='block';
+}
+
+// Initialize
+populateAppsMenu();
+populateTradingMenu();
+</script>
+
+>>>>>>> 711ac5a (blog_post_1.html Main)
 </body>
 </html>
